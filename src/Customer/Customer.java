@@ -7,6 +7,15 @@ public class Customer {
     private int useTime;
     private int paymentAmount;
 
+    Customer() {}
+
+    Customer(String customerNum, String customerName, String customerID, int useTime, int paymentAmount) {
+        this.customerNum = customerNum;
+        this.customerName = customerName;
+        this.customerID = customerID;
+        this.useTime = useTime;
+        this.paymentAmount = paymentAmount;
+    }
     public String getCustomerNum() {
         return customerNum;
     }
