@@ -7,9 +7,9 @@ public class Customer {
     private int useTime;    //사용 시간
     private int paymentAmount;  //소비 금액
 
-    Customer() {}
+    public Customer() {}
 
-    Customer(String customerNum, String customerName, String customerID, int useTime, int paymentAmount) {
+    public Customer(String customerNum, String customerName, String customerID, int useTime, int paymentAmount) {
         this.customerNum = customerNum;
         this.customerName = customerName;
         this.customerID = customerID;

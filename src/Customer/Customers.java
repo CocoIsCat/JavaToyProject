@@ -7,9 +7,9 @@ public class Customers {
 
     private Customer[] customers;
 
-    Customers() {}
+    public Customers() {}
 
-    Customers(Customer[] customers) {
+    public Customers(Customer[] customers) {
         this.customers = customers;
     }
 

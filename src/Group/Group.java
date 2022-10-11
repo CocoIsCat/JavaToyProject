@@ -13,9 +13,9 @@ public class Group {
     private CustomerRating customerRating;  //고객 등급
     private Customers groupMember;  //그룹에 속한 고객
 
-    Group() {}
+    public Group() {}
 
-    Group(CustomerRating customerRating, Customers groupMember) {
+    public Group(CustomerRating customerRating, Customers groupMember) {
         this.customerRating = customerRating;
         this.groupMember = groupMember;
     }

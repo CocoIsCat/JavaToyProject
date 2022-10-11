@@ -3,9 +3,9 @@ package Group;
 public class Groups {
     private Group[] groups;
 
-    Groups() {}
+    public Groups() {}
 
-    Groups(Group[] groups) {
+    public Groups(Group[] groups) {
         this.groups = groups;
     }
 
