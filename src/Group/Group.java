@@ -1,5 +1,6 @@
 package Group;
 
+import Customer.Customer;
 import Customer.Customers;
 
 public class Group {
@@ -30,23 +31,5 @@ public class Group {
 
     public void setGroupMember(Customers groupMember) {
         this.groupMember = groupMember;
-    }
-
-    /*public Group sortByName
-    * - 이름 순 정렬*/
-    public Group sortByName() {
-
-    }
-
-    /*public Group sortByTime
-    * - 소요 시간 순 정렬*/
-    public Group sortByTime() {
-
-    }
-
-    /*public Gorup sortBySpend
-    * - 소비 금액 순 정렬*/
-    public Group sortBySpend() {
-
     }
 }
