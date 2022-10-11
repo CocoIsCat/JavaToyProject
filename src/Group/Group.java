@@ -3,6 +3,9 @@ package Group;
 import Customer.Customer;
 import Customer.Customers;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 public class Group {
 
     enum CustomerRating {GENERAL, VIP, VVIP}
@@ -31,5 +34,16 @@ public class Group {
 
     public void setGroupMember(Customers groupMember) {
         this.groupMember = groupMember;
+    }
+    public void sortByName(boolean isAscending) {
+        this.groupMember.sortByName(isAscending);
+    }
+
+    public void sortByTime(boolean isAscending) {
+        this.groupMember.sortByTime(isAscending);
+    }
+
+    public void sortBySpend(boolean isAscending) {
+        this.groupMember.sortBySpend(isAscending);
     }
 }
