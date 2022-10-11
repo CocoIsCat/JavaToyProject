@@ -1,12 +1,13 @@
 package Management;
 
-import javax.xml.crypto.Data;
+import Database.DB;
+
 
 public class DeleteUser {
     public static void deleteUser(int delIdx) {
-        for(int i = delIdx - 1; i < DataBase.index; i++) {
-            DataBase.customers[i] = DataBase.customers[i+1];
+        for(int i = delIdx - 1; i < DB.index; i++) {
+            DB.customers[i] = DB.customers[i+1];
         }
-        DataBase.index--;
+        DB.index--;
     }
 }
