@@ -1,11 +1,11 @@
 package Customer;
 
 public class Customer {
-    private String customerNum;
-    private String customerName;
-    private String customerID;
-    private int useTime;
-    private int paymentAmount;
+    private String customerNum; //고객 번호
+    private String customerName;    //고객 이름
+    private String customerID;  //고객ID
+    private int useTime;    //사용 시간
+    private int paymentAmount;  //소비 금액
 
     Customer() {}
 
@@ -65,6 +65,9 @@ public class Customer {
         return customerNum.equals(customer.customerNum) & customerName.equals(customer.customerName) & customerID.equals(customer.customerID) & useTime == customer.useTime & paymentAmount == customer.paymentAmount;
     }
 
+    /*public String toString()
+    * - 고객 정보 출력
+    */
     @Override
     public String toString() {
         return "Customer{" +
