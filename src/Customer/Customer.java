@@ -56,6 +56,13 @@ public class Customer {
         this.paymentAmount = paymentAmount;
     }
 
+    public void resetCustomer() {
+        this.customerNum = null;
+        this.customerName = null;
+        this.customerID = null;
+        this.paymentAmount = 0;
+        this.useTime = 0;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
