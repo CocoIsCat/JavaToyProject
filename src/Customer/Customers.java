@@ -104,9 +104,13 @@ public class Customers {
             this.customers[DB.index] = temp;
             DB.index++;
         } catch (ArrayIndexOutOfBoundsException e) {
-            resize();
-            this.customers[DB.index] = temp;
-            DB.index++;
+            if(resize()) {
+                this.customers[DB.index] = temp;
+                DB.index++;
+            }
+            else {
+                /*오류 메시지 출력*/
+            }
         }
         return this;
      }
