@@ -29,8 +29,9 @@ public class Customers {
     * @param    isAscending 오름차순으로 할 것인지 내림차순으로 할 것인지 결정
     */
     public void sortByName(boolean isAscending) {
+        Customer[] temp = Arrays.copyOf(this.customers, this.elementNum());
         if(isAscending) {   //오름차순
-            Arrays.sort(customers, new Comparator<Customer>() {
+            Arrays.sort(temp, new Comparator<Customer>() {
                 @Override
                 public int compare(Customer o1, Customer o2) {
                     return o1.getCustomerName().compareTo(o2.getCustomerName());
@@ -38,13 +39,14 @@ public class Customers {
             });
         }
         else {  //내림차순
-            Arrays.sort(customers, new Comparator<Customer>() {
+            Arrays.sort(temp, new Comparator<Customer>() {
                 @Override
                 public int compare(Customer o1, Customer o2) {
                     return o1.getCustomerName().compareTo(o2.getCustomerName()) * -1;
                 }
             });
         }
+        this.setCustomers(Arrays.copyOf(temp, this.customers.length));
     }
 
     /*Customoers 안의 요소들을 소요 시간 순으로 오름차순 또는 내림차순으로 정렬
@@ -52,8 +54,9 @@ public class Customers {
      * @param   isAscending 오름차순으로 할 것인지 내림차순으로 할 것인지 결정
      */
     public void sortByTime(boolean isAscending) {
+        Customer[] temp = Arrays.copyOf(this.customers, this.elementNum());
         if(isAscending) {   //오름차순
-            Arrays.sort(customers, new Comparator<Customer>() {
+            Arrays.sort(temp, new Comparator<Customer>() {
                 @Override
                 public int compare(Customer o1, Customer o2) {
                     return o1.getUseTime() - o2.getUseTime();
@@ -61,13 +64,14 @@ public class Customers {
             });
         }
         else {  //내림차순
-            Arrays.sort(customers, new Comparator<Customer>() {
+            Arrays.sort(temp, new Comparator<Customer>() {
                 @Override
                 public int compare(Customer o1, Customer o2) {
                     return o2.getUseTime() - o1.getUseTime();
                 }
             });
         }
+        this.setCustomers(Arrays.copyOf(temp, this.customers.length));
     }
 
     /*Customoers 안의 요소들을 소비 금액 순으로 오름차순 또는 내림차순으로 정렬
@@ -75,8 +79,9 @@ public class Customers {
      * @param   isAscending 오름차순으로 할 것인지 내림차순으로 할 것인지 결정
      */
     public void sortBySpend(boolean isAscending) {
+        Customer[] temp = Arrays.copyOf(this.customers, this.elementNum());
         if(isAscending) {   //오름차순
-            Arrays.sort(customers, new Comparator<Customer>() {
+            Arrays.sort(temp, new Comparator<Customer>() {
                 @Override
                 public int compare(Customer o1, Customer o2) {
                     return o1.getPaymentAmount() - o2.getPaymentAmount();
@@ -84,13 +89,14 @@ public class Customers {
             });
         }
         else {  //내림차순
-            Arrays.sort(customers, new Comparator<Customer>() {
+            Arrays.sort(temp, new Comparator<Customer>() {
                 @Override
                 public int compare(Customer o1, Customer o2) {
                     return o2.getPaymentAmount() - o1.getPaymentAmount();
                 }
             });
         }
+        this.setCustomers(Arrays.copyOf(temp, this.customers.length));
     }
 
     /* 새로운 Customer 요소를 Customers에 추가
