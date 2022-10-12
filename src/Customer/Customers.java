@@ -142,10 +142,7 @@ public class Customers {
          try {
              int size = this.customers.length * 2;
              Customer[] newCustomers = new Customer[size];
-             for(int i = 0; i < DB.index; i++) {
-                 newCustomers[i] = this.customers[i];
-             }
-             /*newCustomers = Arrays.copyOf(this.customers, this.customers.length);*/
+             newCustomers = Arrays.copyOf(this.customers, size);
              this.setCustomers(newCustomers);
              return true;
          } catch (OutOfMemoryError e) {
