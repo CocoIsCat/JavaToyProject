@@ -19,6 +19,10 @@ public class Groups {
         this.groups = groups;
     }
 
+    /*기준에 따라 customers를 GENERAL, VIP, VVIP 등급으로 나눔
+    *
+    * @param    customers 정렬을 당할 고객들
+    * @return   각 그룹별로 분류가 완료된 Groups*/
     public Groups groupClassify(Customers customers) {
         GroupParameter VVIPparam = this.getGroups()[0].getGroupParameter();
         GroupParameter VIPparam = this.getGroups()[1].getGroupParameter();
