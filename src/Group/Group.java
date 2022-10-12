@@ -6,26 +6,34 @@ import Customer.Customers;
 import java.util.Collections;
 import java.util.Comparator;
 
+
 public class Group {
 
-    enum CustomerRating {GENERAL, VIP, VVIP}
-
-    private CustomerRating customerRating;  //고객 등급
-    private Customers groupMember;  //그룹에 속한 고객
+    public enum GroupRating {GENERAL, VIP, VVIP}
+    private GroupRating groupRating;  //고객 등급
+    private Customers groupMember = new Customers(new Customer[10]);  //그룹에 속한 고객
+    private GroupParameter groupParameter;   //등급
 
     public Group() {}
 
-    public Group(CustomerRating customerRating, Customers groupMember) {
-        this.customerRating = customerRating;
-        this.groupMember = groupMember;
+    public Group(GroupRating groupRating) {
+        this.groupRating = groupRating;
     }
 
-    public CustomerRating getCustomerRating() {
-        return customerRating;
+    public GroupParameter getGroupParameter() {
+        return groupParameter;
     }
 
-    public void setCustomerRating(CustomerRating customerRating) {
-        this.customerRating = customerRating;
+    public void setGroupParameter(GroupParameter groupParameter) {
+        this.groupParameter = groupParameter;
+    }
+
+    public GroupRating getCustomerRating() {
+        return groupRating;
+    }
+
+    public void setCustomerRating(GroupRating groupRating) {
+        this.groupRating = groupRating;
     }
 
     public Customers getGroupMember() {
