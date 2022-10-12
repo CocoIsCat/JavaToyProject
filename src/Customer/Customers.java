@@ -100,13 +100,12 @@ public class Customers {
     * @except   ArrayIndexOutOfBoundsException 용량이 부족할 경우
     * */
      public Customers add (Customer temp) {
+         int size = this.elementNum();
         try {
-            this.customers[DB.index] = temp;
-            DB.index++;
+            this.customers[size] = temp;
         } catch (ArrayIndexOutOfBoundsException e) {
-            if(resize()) {
-                this.customers[DB.index] = temp;
-                DB.index++;
+            if(upsize()) {
+                this.customers[size] = temp;
             }
             else {
                 /*오류 메시지 출력*/
@@ -121,12 +120,12 @@ public class Customers {
      * @return  삭제가 이루어졌는지 여부 반환
      * @except  ArrayIndexOutOfBoundsException  배열의 크기를 넘어서는 입력이 들어왔을 경우
      * */
-     public boolean del (int index) {
+     public boolean del (int delIndex) {
+         int size = this.elementNum();
          try {
-             for (int i = index - 1; i < DB.index; i++) {
+             for (int i = delIndex - 1; i < size; i++) {
                  this.customers[i] = this.customers[i + 1];
              }
-             DB.index--;
              return true;
          } catch (ArrayIndexOutOfBoundsException e) {
              /*오류 메시지 출력*/
@@ -138,7 +137,7 @@ public class Customers {
      *
      * @return  더블링이 성공적으로 수행됐는지 여부 반환
      * @except  OutOfMemory 메모리가 부족할 경우*/
-     public boolean resize() {
+     public boolean upsize() {
          try {
              int size = this.customers.length * 2;
              Customer[] newCustomers = new Customer[size];
@@ -150,11 +149,26 @@ public class Customers {
              return false;
          }
      }
+    /*배열에서 null이 아닌 요소의 값을 반환함
+    *
+    * @return   num null이 아닌 요소의 수*/
+    public int elementNum() {
+        int num = 0;
+        int size = this.customers.length;
+        while(num < this.customers.length) {
+            if(this.customers[num] != null)
+                num++;
+            else
+                break;
+        }
+        return num;
+    }
 
      @Override
     public String toString() {
+         int size = this.elementNum();
          String result = "Customers{\n";
-         for(int i = 0; i < DB.index; i++) {
+         for(int i = 0; i < size; i++) {
              result += (this.customers[i].toString() + "\n");
          }
          return result + "}";
