@@ -1,5 +1,6 @@
 package Group;
 
+import Customer.Customer;
 import Customer.Customers;
 
 public class Groups {
@@ -27,16 +28,27 @@ public class Groups {
         GroupParameter VVIPparam = this.getGroups()[0].getGroupParameter();
         GroupParameter VIPparam = this.getGroups()[1].getGroupParameter();
         GroupParameter GENERALparam = this.getGroups()[2].getGroupParameter();
+
+        Customers VVIPMem = new Customers(new Customer[10]);
+        Customers VIPMem = new Customers(new Customer[10]);
+        Customers GENERALMem = new Customers(new Customer[10]);
+        Customers Mem = new Customers(new Customer[10]);
+
         for(int i = 0; i < customers.elementNum(); i++) {
             if(customers.getCustomers()[i].getUseTime() >= VVIPparam.getUseTime() & customers.getCustomers()[i].getPaymentAmount() >= VVIPparam.getPaymentOfAmount())
-                this.getGroups()[0].getGroupMember().add(customers.getCustomers()[i]);
+                VVIPMem.add(customers.getCustomers()[i]);
             else if(customers.getCustomers()[i].getUseTime() >= VIPparam.getUseTime() & customers.getCustomers()[i].getPaymentAmount() >= VIPparam.getPaymentOfAmount())
-                this.getGroups()[1].getGroupMember().add(customers.getCustomers()[i]);
+                VIPMem.add(customers.getCustomers()[i]);
             else if(customers.getCustomers()[i].getUseTime() >= GENERALparam.getUseTime() & customers.getCustomers()[i].getPaymentAmount() >= GENERALparam.getPaymentOfAmount())
-                this.getGroups()[2].getGroupMember().add(customers.getCustomers()[i]);
+                GENERALMem.add(customers.getCustomers()[i]);
             else
-                this.getGroups()[3].getGroupMember().add(customers.getCustomers()[i]);
+                Mem.add(customers.getCustomers()[i]);
         }
+
+        this.getGroups()[0].setGroupMember(VVIPMem);
+        this.getGroups()[1].setGroupMember(VIPMem);
+        this.getGroups()[2].setGroupMember(GENERALMem);
+        this.getGroups()[3].setGroupMember(Mem);
         return this;
     }
 }

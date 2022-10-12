@@ -11,7 +11,7 @@ public class Group {
 
     public enum GroupRating {GENERAL, VIP, VVIP}
     private GroupRating groupRating;  //고객 등급
-    private Customers groupMember = new Customers(new Customer[10]);  //그룹에 속한 고객
+    private Customers groupMember;  //그룹에 속한 고객
     private GroupParameter groupParameter;   //등급
 
     public Group() {}
@@ -42,16 +42,5 @@ public class Group {
 
     public void setGroupMember(Customers groupMember) {
         this.groupMember = groupMember;
-    }
-    public void sortByName(boolean isAscending) {
-        this.groupMember.sortByName(isAscending);
-    }
-
-    public void sortByTime(boolean isAscending) {
-        this.groupMember.sortByTime(isAscending);
-    }
-
-    public void sortBySpend(boolean isAscending) {
-        this.groupMember.sortBySpend(isAscending);
     }
 }
