@@ -18,6 +18,8 @@ public class Group {
 
     public Group(GroupRating groupRating) {
         this.groupRating = groupRating;
+        this.groupMember = new Customers(new Customer[10]);
+        this.groupParameter = new GroupParameter(0,0);
     }
 
     public GroupParameter getGroupParameter() {
