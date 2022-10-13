@@ -36,4 +36,12 @@ public class GroupParameter {
         else
             return false;
     }
+
+    @Override
+    public String toString() {
+        return " Parameter = {" +
+                "UseTime = " + this.useTime +
+                ", PaymentOfAmount = " + this.paymentOfAmount +
+                " } ";
+    }
 }
