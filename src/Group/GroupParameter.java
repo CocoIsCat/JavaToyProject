@@ -15,15 +15,25 @@ public class GroupParameter {
         return paymentOfAmount;
     }
 
-    public void setPaymentofAmount(int paymentOfAmount) {
-        this.paymentOfAmount = paymentOfAmount;
+    public boolean setPaymentOfAmount(int paymentOfAmount) {
+        if(paymentOfAmount >= 0) {
+            this.paymentOfAmount = paymentOfAmount;
+            return true;
+        }
+        else
+            return false;
     }
 
     public int getUseTime() {
         return useTime;
     }
 
-    public void setUseTime(int useTime) {
-        this.useTime = useTime;
+    public boolean setUseTime(int useTime) {
+        if(useTime >= 0) {
+            this.useTime = useTime;
+            return true;
+        }
+        else
+            return false;
     }
 }
