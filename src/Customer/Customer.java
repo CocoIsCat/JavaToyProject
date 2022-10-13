@@ -1,5 +1,7 @@
 package Customer;
 
+import java.util.regex.Pattern;
+
 public class Customer {
     private String customerNum; //고객 번호
     private String customerName;    //고객 이름
@@ -9,8 +11,8 @@ public class Customer {
 
     public Customer() {}
 
-    public Customer(String customerNum, String customerName, String customerID, int useTime, int paymentAmount) {
-        this.customerNum = customerNum;
+    public Customer(int total, String customerName, String customerID, int useTime, int paymentAmount) {
+        this.customerNum = "UID-" + total;
         this.customerName = customerName;
         this.customerID = customerID;
         this.useTime = useTime;
@@ -20,40 +22,71 @@ public class Customer {
         return customerNum;
     }
 
-    public void setCustomerNum(String customerNum) {
-        this.customerNum = customerNum;
+    public void setCustomerNum(int total) {
+        this.customerNum = "UID-" + total;
     }
 
     public String getCustomerName() {
         return customerName;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public boolean setCustomerName(String customerName) {
+        String reg = "^[a-zA-Z\\s]{3,20}$";
+        if(Pattern.matches(reg, customerName)) {
+            this.customerName = customerName;
+            return true;
+        }
+        else
+            return false;
     }
 
     public String getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(String customerID) {
-        this.customerID = customerID;
+    public boolean setCustomerID(String customerID) {
+        String reg = "^[a-zA-Z0-9]{5,12}$";
+        if (Pattern.matches(reg, customerID)) {
+            this.customerID = customerID;
+            return true;
+        }
+        else
+            return false;
     }
 
     public int getUseTime() {
         return useTime;
     }
 
-    public void setUseTime(int useTime) {
-        this.useTime = useTime;
+    public boolean setUseTime(int useTime) {
+        if(useTime >= 0) {
+            this.useTime = useTime;
+            return true;
+        }
+        else
+            return false;
     }
 
     public int getPaymentAmount() {
         return paymentAmount;
     }
 
-    public void setPaymentAmount(int paymentAmount) {
-        this.paymentAmount = paymentAmount;
+    public boolean setPaymentAmount(int paymentAmount) {
+        if(paymentAmount >= 0) {
+            this.paymentAmount = paymentAmount;
+            return true;
+        }
+        else
+            return false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Customer customer = (Customer) o;
+        return customerNum.equals(customer.customerNum) & customerName.equals(customer.customerName) & customerID.equals(customer.customerID) & useTime == customer.useTime & paymentAmount == customer.paymentAmount;
     }
 
     public void resetCustomer() {
@@ -62,14 +95,6 @@ public class Customer {
         this.customerID = null;
         this.paymentAmount = 0;
         this.useTime = 0;
-    }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Customer customer = (Customer) o;
-        return customerNum.equals(customer.customerNum) & customerName.equals(customer.customerName) & customerID.equals(customer.customerID) & useTime == customer.useTime & paymentAmount == customer.paymentAmount;
     }
 
     /*public String toString()
