@@ -9,7 +9,7 @@ import java.util.Comparator;
 
 public class Group {
 
-    public enum GroupRating {GENERAL, VIP, VVIP}
+    public enum GroupRating {GENERAL, VIP, VVIP, NORMAL}
     private GroupRating groupRating;  //고객 등급
     private Customers groupMember;  //그룹에 속한 고객
     private GroupParameter groupParameter;   //등급
