@@ -23,7 +23,7 @@ public class CustomerMenu extends Menu{
                 break;
             }
             else if (menu > 5 || menu < 1) {
-                System.out.println("\nfuck\n");
+                System.out.println("\n!!!Invalid Input!!!\n");
             }
             else {
                 System.out.println("\n");
@@ -75,7 +75,7 @@ public class CustomerMenu extends Menu{
                     break;
                 }
                 else {
-                    System.out.println("\n fuck \n");
+                    System.out.println("\n!!!Invalid Input!!!\n");
                 }
             }
         }
@@ -109,7 +109,7 @@ public class CustomerMenu extends Menu{
                     break;
                 }
                 else {
-                    System.out.println("\n fuck \n");
+                    System.out.println("\n!!!Invalid Input!!!\n");
                 }
             }
         }
@@ -134,7 +134,7 @@ public class CustomerMenu extends Menu{
                 updateCustomerData(num, menu);
                 break;
             } else {
-                System.out.println("\n fuck \n");
+                System.out.println("\n!!!Invalid Input!!!\n");
             }
 
         }
@@ -165,7 +165,7 @@ public class CustomerMenu extends Menu{
                         break;
                     }
                     else {
-                        System.out.println("\nfuck\n");
+                        System.out.println("\n!!!Invalid Input!!!\n");
                     }
                 }
                 break;
@@ -190,7 +190,7 @@ public class CustomerMenu extends Menu{
                         break;
                     }
                     else {
-                        System.out.println("\nfuck\n");
+                        System.out.println("\n!!!Invalid Input!!!\n");
                     }
                 }
                 break;
@@ -215,7 +215,7 @@ public class CustomerMenu extends Menu{
                         break;
                     }
                     else {
-                        System.out.println("\nfuck\n");
+                        System.out.println("\n!!!Invalid Input!!!\n");
                     }
                 }
                 break;
@@ -240,7 +240,7 @@ public class CustomerMenu extends Menu{
                         break;
                     }
                     else {
-                        System.out.println("\nfuck\n");
+                        System.out.println("\n!!!Invalid Input!!!\n");
                     }
                 }
                 break;
@@ -309,7 +309,7 @@ public class CustomerMenu extends Menu{
                 break;
             }
             else {
-                System.out.println("\nfuck\n");
+                System.out.println("\n!!!Invalid Input!!!\n");
             }
         }
     }

@@ -19,7 +19,7 @@ public class MainMenu extends Menu{
                 break;
             }
             else if(menu > 4 || menu < 1) {
-                System.out.println("\nfuck\n");
+                System.out.println("\n!!!Invalid Input!!!\n");
             }
             else {
                 System.out.println("\n");

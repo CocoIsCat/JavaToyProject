@@ -24,7 +24,7 @@ public class GroupMenu extends Menu{
                 break;
             }
             else if(menu > 3 || menu < 1) {
-                System.out.println("\n잘 입력해라 애송이\n");
+                System.out.println("\n!!!Invalid Input!!!\n");
             }
             else {
                 System.out.println("\n");
@@ -68,8 +68,7 @@ public class GroupMenu extends Menu{
                 break;
             }
             else if (group > 3 || group < 1) {
-                System.out.println("\n잘 입력해라 애송이\n");
-                continue;
+                System.out.println("\n!!!Invalid Input!!!\n");
             } else {
                 System.out.println("\n");
                 updateParameter(group);
@@ -121,8 +120,7 @@ public class GroupMenu extends Menu{
                 break;
             }
             else if (group > 4 || group < 1) {
-                System.out.println("\n잘 입력해라 애송이\n");
-                continue;
+                System.out.println("\n!!!Invalid Input!!!\n");
             } else {
                 System.out.println("\n");
                 viewParameter(group);
@@ -182,7 +180,7 @@ public class GroupMenu extends Menu{
                 break;
             }
             else if (group > 3 || group < 1) {
-                System.out.println("\n잘 입력해라 애송이\n");
+                System.out.println("\n!!!Invalid Input!!!\n");
             } else {
                 System.out.println("\n");
                 setParameter(group);

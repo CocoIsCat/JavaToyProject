@@ -24,7 +24,7 @@ public class SummaryMenu extends Menu{
                 break;
             }
             else if(menu > 5 || menu < 1) {
-                System.out.println("\n잘 입력해라 애송이\n");
+                System.out.println("\n!!!Invalid Input!!!\n");
             }
             else {
                 System.out.println("\n");
@@ -76,7 +76,7 @@ public class SummaryMenu extends Menu{
                 isAscending = false;
                 flag= true;
             } else {
-                System.out.println("\n fuck \n");
+                System.out.println("\n!!!Invalid Input!!!\n");
                 flag = false;
             }
             if(flag) {
@@ -117,7 +117,7 @@ public class SummaryMenu extends Menu{
                 isAscending = false;
                 flag= true;
             } else {
-                System.out.println("\n fuck \n");
+                System.out.println("\n!!!Invalid Input!!!\n");
                 flag = false;
             }
             if(flag) {
@@ -158,7 +158,7 @@ public class SummaryMenu extends Menu{
                 isAscending = false;
                 flag= true;
             } else {
-                System.out.println("\n fuck \n");
+                System.out.println("\n!!!Invalid Input!!!\n");
                 flag = false;
             }
             if(flag) {
