@@ -129,9 +129,10 @@ public class Customers {
      public boolean del (int delIndex) {
          int size = this.elementNum();
          try {
-             for (int i = delIndex - 1; i < size; i++) {
+             for (int i = delIndex; i < size - 1; i++) {
                  this.customers[i] = this.customers[i + 1];
              }
+             this.customers[size - 1] = null;
              return true;
          } catch (ArrayIndexOutOfBoundsException e) {
              /*오류 메시지 출력*/
@@ -161,7 +162,7 @@ public class Customers {
     public int elementNum() {
         int num = 0;
         int size = this.customers.length;
-        while(num < this.customers.length) {
+        while(num < size) {
             if(this.customers[num] != null)
                 num++;
             else

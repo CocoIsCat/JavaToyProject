@@ -25,7 +25,6 @@ public class GroupMenu extends Menu{
             }
             else if(menu > 3 || menu < 1) {
                 System.out.println("\n잘 입력해라 애송이\n");
-                continue;
             }
             else {
                 System.out.println("\n");
@@ -184,7 +183,6 @@ public class GroupMenu extends Menu{
             }
             else if (group > 3 || group < 1) {
                 System.out.println("\n잘 입력해라 애송이\n");
-                continue;
             } else {
                 System.out.println("\n");
                 setParameter(group);
