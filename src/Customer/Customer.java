@@ -7,11 +7,11 @@ public class Customer {
     private String customerName;    //고객 이름
     private String customerID;  //고객ID
     private int useTime;    //사용 시간
-    private int paymentAmount;  //소비 금액
+    private long paymentAmount;  //소비 금액
 
     public Customer() {}
 
-    public Customer(int total, String customerName, String customerID, int useTime, int paymentAmount) {
+    public Customer(int total, String customerName, String customerID, int useTime, long paymentAmount) {
         this.customerNum = "UID-" + total;
         this.customerName = customerName;
         this.customerID = customerID;
@@ -67,11 +67,11 @@ public class Customer {
             return false;
     }
 
-    public int getPaymentAmount() {
+    public long getPaymentAmount() {
         return paymentAmount;
     }
 
-    public boolean setPaymentAmount(int paymentAmount) {
+    public boolean setPaymentAmount(long paymentAmount) {
         if(paymentAmount >= 0) {
             this.paymentAmount = paymentAmount;
             return true;

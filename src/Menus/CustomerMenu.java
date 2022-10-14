@@ -129,7 +129,7 @@ public class CustomerMenu extends Menu{
             if (menu == 0) {
                 System.out.println("\n");
                 break;
-            } else if (menu > 0 & menu < 4) {
+            } else if (menu > 0 & menu < 5) {
                 System.out.println("\n");
                 updateCustomerData(num, menu);
                 break;
@@ -220,11 +220,11 @@ public class CustomerMenu extends Menu{
                 }
                 break;
             case 4:
-                int payment;
+                long payment;
                 do {
                     System.out.println("Before : " + DB.customers.getCustomers()[num].getPaymentAmount());
                     System.out.printf("Enter Payment Of Amount (Exceeding zero) : ");
-                    payment = sc.nextInt();
+                    payment = sc.nextLong();
                 } while(!CT.setPaymentAmount(payment));
 
                 while(true) {
@@ -270,7 +270,8 @@ public class CustomerMenu extends Menu{
         Customer CM = new Customer();
         Character answer;
         String name, id;
-        int time, payment;
+        int time;
+        long payment;
         System.out.printf("[ %s ]\n","Add Customer Data");
         System.out.println("========================================================================");
         do {
@@ -287,7 +288,7 @@ public class CustomerMenu extends Menu{
         } while (!CM.setUseTime(time));
         do {
             System.out.printf("Enter Payment Of Amount (Exceeding zero) : ");
-            payment = sc.nextInt();
+            payment = sc.nextLong();
         } while (!CM.setPaymentAmount(payment));
         System.out.println("\n=============================================================================================");
         System.out.printf("| %20s | %20s | %20s | %20s |\n", "Customer Name", "Customer ID", "Use Time", "Payment Of Amount");

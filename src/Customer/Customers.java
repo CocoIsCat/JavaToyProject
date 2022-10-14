@@ -84,7 +84,10 @@ public class Customers {
             Arrays.sort(temp, new Comparator<Customer>() {
                 @Override
                 public int compare(Customer o1, Customer o2) {
-                    return o1.getPaymentAmount() - o2.getPaymentAmount();
+                    if(o1.getPaymentAmount() - o2.getPaymentAmount() < 0 )
+                        return -1;
+                    else
+                        return 1;
                 }
             });
         }
@@ -92,7 +95,10 @@ public class Customers {
             Arrays.sort(temp, new Comparator<Customer>() {
                 @Override
                 public int compare(Customer o1, Customer o2) {
-                    return o2.getPaymentAmount() - o1.getPaymentAmount();
+                    if(o1.getPaymentAmount() - o2.getPaymentAmount() < 0 )
+                        return 1;
+                    else
+                        return -1;
                 }
             });
         }
