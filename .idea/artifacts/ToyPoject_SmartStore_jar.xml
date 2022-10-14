@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ToyPoject SmartStore:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ToyPoject_SmartStore_jar</output-path>
+    <root id="archive" name="ToyPoject SmartStore.jar">
+      <element id="module-output" name="ToyPoject SmartStore" />
+    </root>
+  </artifact>
+</component>
