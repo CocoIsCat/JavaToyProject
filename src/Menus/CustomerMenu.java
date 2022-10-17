@@ -2,6 +2,8 @@ package Menus;
 
 import Customer.Customer;
 import Database.DB;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CustomerMenu extends Menu{
@@ -17,7 +19,13 @@ public class CustomerMenu extends Menu{
             System.out.printf("|%-70s|\n", " 5. Back");
             System.out.println("========================================================================");
             System.out.printf("Choose One : ");
-            menu = new Scanner(System.in).nextInt();
+            try {
+                menu = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                menu = -1;
+            }
             if(menu == 5) {
                 System.out.println("\n");
                 break;
@@ -68,10 +76,16 @@ public class CustomerMenu extends Menu{
             System.out.println("============================================================================================================");
             while(true) {
                 System.out.printf("Choose Customer Num : UID-");
-                num = sc.nextInt();
+                try {
+                    num = sc.nextInt();
+
+                } catch (InputMismatchException e) {
+                    sc.nextLine();
+                    num = -1;
+                }
                 if (num < DB.customers.elementNum() & num >= 0) {
-                    System.out.println("\n");
                     DB.customers.del(num);
+                    System.out.println("\n!!!DELETE SUCCESS!!!\n");
                     break;
                 }
                 else {
@@ -102,7 +116,13 @@ public class CustomerMenu extends Menu{
             System.out.println("============================================================================================================");
             while(true) {
                 System.out.printf("Choose Customer Num : UID-");
-                num = sc.nextInt();
+                try {
+                    num = sc.nextInt();
+
+                } catch (InputMismatchException e) {
+                    sc.nextLine();
+                    num = -1;
+                }
                 if (num < DB.customers.elementNum() & num >= 0) {
                     System.out.println("\n");
                     selectCustomerData(num);
@@ -125,7 +145,13 @@ public class CustomerMenu extends Menu{
             System.out.printf("| %s  %17s  %15s  %23s |\n", "1. Customer Name", "2. Customer ID", "3. Use Time", "4. Payment Of Amount");
             System.out.println("=================================================================================");
             System.out.printf("Choose One : ");
-            menu = sc.nextInt();
+            try {
+                menu = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                menu = -1;
+            }
             if (menu == 0) {
                 System.out.println("\n");
                 break;
@@ -199,7 +225,13 @@ public class CustomerMenu extends Menu{
                 do {
                     System.out.println("Before : " + DB.customers.getCustomers()[num].getUseTime());
                     System.out.printf("Enter Use Time (Exceeding zero) : ");
-                    time = sc.nextInt();
+                    try {
+                        time = sc.nextInt();
+
+                    } catch (InputMismatchException e) {
+                        sc.nextLine();
+                        time = -1;
+                    }
                 } while(!CT.setUseTime(time));
 
                 while(true) {
@@ -224,7 +256,13 @@ public class CustomerMenu extends Menu{
                 do {
                     System.out.println("Before : " + DB.customers.getCustomers()[num].getPaymentAmount());
                     System.out.printf("Enter Payment Of Amount (Exceeding zero) : ");
-                    payment = sc.nextLong();
+                    try {
+                        payment = sc.nextLong();
+
+                    } catch (InputMismatchException e) {
+                        sc.nextLine();
+                        payment = -1;
+                    }
                 } while(!CT.setPaymentAmount(payment));
 
                 while(true) {
@@ -284,11 +322,23 @@ public class CustomerMenu extends Menu{
         } while (!CM.setCustomerID(id));
         do {
             System.out.printf("Enter Use Time (Exceeding zero) : ");
-            time = sc.nextInt();
+            try {
+                time = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                time = -1;
+            }
         } while (!CM.setUseTime(time));
         do {
             System.out.printf("Enter Payment Of Amount (Exceeding zero) : ");
-            payment = sc.nextLong();
+            try {
+                payment = sc.nextLong();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                payment = -1;
+            }
         } while (!CM.setPaymentAmount(payment));
         System.out.println("\n=============================================================================================");
         System.out.printf("| %20s | %20s | %20s | %20s |\n", "Customer Name", "Customer ID", "Use Time", "Payment Of Amount");

@@ -1,7 +1,7 @@
 package Group;
 
 public class GroupParameter {
-    private int paymentOfAmount;
+    private long paymentOfAmount;
     private int useTime;
 
     public GroupParameter() {}
@@ -11,11 +11,11 @@ public class GroupParameter {
         this.useTime = useTime;
     }
 
-    public int getPaymentOfAmount() {
+    public long getPaymentOfAmount() {
         return paymentOfAmount;
     }
 
-    public boolean setPaymentOfAmount(int paymentOfAmount) {
+    public boolean setPaymentOfAmount(long paymentOfAmount) {
         if(paymentOfAmount >= 0) {
             this.paymentOfAmount = paymentOfAmount;
             return true;

@@ -3,6 +3,8 @@ package Menus;
 import Database.DB;
 import Group.GroupParameter;
 
+import java.util.InputMismatchException;
+
 public class GroupMenu extends Menu{
 
     static String[] GN = {"VVIP", "VIP", "GENERAL"};
@@ -18,7 +20,13 @@ public class GroupMenu extends Menu{
             System.out.printf("|%-70s|\n", " 4. Back");
             System.out.println("========================================================================");
             System.out.printf("Choose One : ");
-            menu = sc.nextInt();
+            try {
+                menu = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                menu = -1;
+            }
             if (menu == 4) {
                 System.out.println("\n");
                 break;
@@ -62,7 +70,13 @@ public class GroupMenu extends Menu{
             System.out.printf("| %s %29s %29s  |\n", "1. VVIP", "2. VIP", "3. GENERAL");
             System.out.println("========================================================================");
             System.out.printf("Choose Group : ");
-            group = sc.nextInt();
+            try {
+                group = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                group = -1;
+            }
             if (group == 0) {
                 System.out.println("\n");
                 break;
@@ -84,7 +98,7 @@ public class GroupMenu extends Menu{
         System.out.printf("[ %s ]\n", "Update Parameter Of " + GN[group - 1]);
         System.out.printf("%72s\n", " | Current |");
         int useTime = DB.groups.getGroups()[group - 1].getGroupParameter().getUseTime();
-        int payment = DB.groups.getGroups()[group - 1].getGroupParameter().getPaymentOfAmount();
+        long payment = DB.groups.getGroups()[group - 1].getGroupParameter().getPaymentOfAmount();
         GroupParameter GP = new GroupParameter();
         System.out.println("========================================================================");
         System.out.printf("| %20s | %21s | %21s |\n", "Group", "Use Time", "Payment Of Spent");
@@ -93,11 +107,23 @@ public class GroupMenu extends Menu{
         System.out.println("========================================================================");
         do {
             System.out.printf("Enter Use Time (Exceeding zero) : ");
-            useTime = sc.nextInt();
+            try {
+                useTime = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                useTime = -1;
+            }
         } while (!GP.setUseTime(useTime));
         do {
             System.out.printf("Enter Payment Of Amount (Exceeding zero) : ");
-            payment = sc.nextInt();
+            try {
+                payment = sc.nextLong();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                payment = -1;
+            }
         } while (!GP.setPaymentOfAmount(payment));
         DB.groups.getGroups()[group - 1].setGroupParameter(GP);
         System.out.println("\n!!! " + GN[group - 1] + " Parameter Update Successful !!!\n");
@@ -114,7 +140,13 @@ public class GroupMenu extends Menu{
             System.out.printf("| %s %19s %20s %19s |\n", "1. VVIP", "2. VIP", "3. GENERAL", "4. ALL");
             System.out.println("========================================================================");
             System.out.printf("Choose Group : ");
-            group = sc.nextInt();
+            try {
+                group = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                group = -1;
+            }
             if (group == 0) {
                 System.out.println("\n");
                 break;
@@ -140,7 +172,7 @@ public class GroupMenu extends Menu{
             System.out.println("========================================================================");
             for(int i = 0; i < group - 1; i++) {
                 int useTime = DB.groups.getGroups()[i].getGroupParameter().getUseTime();
-                int payment = DB.groups.getGroups()[i].getGroupParameter().getPaymentOfAmount();
+                long payment = DB.groups.getGroups()[i].getGroupParameter().getPaymentOfAmount();
                 System.out.printf("| %20s | %21s | %21s |\n", GN[i], useTime, payment);
             }
             System.out.println("========================================================================");
@@ -150,7 +182,7 @@ public class GroupMenu extends Menu{
         }
         else {
             int useTime = DB.groups.getGroups()[group - 1].getGroupParameter().getUseTime();
-            int payment = DB.groups.getGroups()[group - 1].getGroupParameter().getPaymentOfAmount();
+            long payment = DB.groups.getGroups()[group - 1].getGroupParameter().getPaymentOfAmount();
             System.out.printf("[ %s ]\n", "View Parameter of " + GN[group - 1]);
             System.out.println("========================================================================");
             System.out.printf("| %20s | %21s | %21s |\n", "Group", "Use Time", "Payment Of Spent");
@@ -174,7 +206,13 @@ public class GroupMenu extends Menu{
             System.out.printf("| %s %29s %29s  |\n", "1. VVIP", "2. VIP", "3. GENERAL");
             System.out.println("========================================================================");
             System.out.printf("Choose Group : ");
-            group = sc.nextInt();
+            try {
+                group = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                group = -1;
+            }
             if (group == 0) {
                 System.out.println("\n");
                 break;
@@ -194,16 +232,29 @@ public class GroupMenu extends Menu{
     * */
     private static void setParameter(int group) {
         GroupParameter GP = new GroupParameter();
-        int useTime, paymentOfAmount;
+        int useTime;
+        long paymentOfAmount;
         System.out.printf("[ %s ]\n","Set Parameter Of " + GN[group - 1]);
         System.out.println("========================================================================");
         do {
             System.out.printf("Enter Use Time (Exceeding zero) : ");
-            useTime = sc.nextInt();
+            try {
+                useTime = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                useTime = -1;
+            }
         } while (!GP.setUseTime(useTime));
         do {
             System.out.printf("Enter Payment Of Amount (Exceeding zero) : ");
-            paymentOfAmount = sc.nextInt();
+            try {
+                paymentOfAmount = sc.nextLong();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                paymentOfAmount = -1;
+            }
         } while (!GP.setPaymentOfAmount(paymentOfAmount));
         DB.groups.getGroups()[group - 1].setGroupParameter(GP);
         System.out.println("\n!!! " + GN[group - 1] + " Parameter Setup Successful !!!\n");
