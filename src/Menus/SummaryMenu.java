@@ -2,6 +2,7 @@ package Menus;
 
 import Database.DB;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SummaryMenu extends Menu{
@@ -18,7 +19,13 @@ public class SummaryMenu extends Menu{
             System.out.printf("|%-70s|\n", " 5. Back");
             System.out.println("========================================================================");
             System.out.printf("Choose One : ");
-            menu = new Scanner(System.in).nextInt();
+            try {
+                menu = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                menu = -1;
+            }
             if (menu == 5) {
                 System.out.println("\n");
                 break;
@@ -144,7 +151,13 @@ public class SummaryMenu extends Menu{
             System.out.printf("| %20s %20s %-26s |\n", "1. Ascending", "", "2. Descending");
             System.out.println("========================================================================");
             System.out.printf("Choose One : ");
-            select = sc.nextInt();
+            try {
+                select = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                select = -1;
+            }
             if (select == 0) {
                 System.out.println("\n");
                 flag = false;

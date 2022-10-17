@@ -1,5 +1,6 @@
 package Menus;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainMenu extends Menu{
@@ -14,7 +15,13 @@ public class MainMenu extends Menu{
             System.out.printf("|%-70s|\n", " 4. Quit");
             System.out.println("========================================================================");
             System.out.printf(" Choose One : ");
-            menu = new Scanner(System.in).nextInt();
+            try {
+                menu = sc.nextInt();
+
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                menu = -1;
+            }
             if (menu == 4) {
                 break;
             }
