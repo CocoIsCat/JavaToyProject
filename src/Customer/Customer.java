@@ -1,5 +1,6 @@
 package Customer;
 
+import java.util.InputMismatchException;
 import java.util.regex.Pattern;
 
 public class Customer {
@@ -59,12 +60,15 @@ public class Customer {
     }
 
     public boolean setUseTime(int useTime) {
-        if(useTime >= 0) {
-            this.useTime = useTime;
-            return true;
-        }
-        else
+        try {
+            if (useTime >= 0) {
+                this.useTime = useTime;
+                return true;
+            } else
+                return false;
+        } catch (InputMismatchException e) {
             return false;
+        }
     }
 
     public long getPaymentAmount() {
@@ -72,12 +76,15 @@ public class Customer {
     }
 
     public boolean setPaymentAmount(long paymentAmount) {
-        if(paymentAmount >= 0) {
-            this.paymentAmount = paymentAmount;
-            return true;
-        }
-        else
+        try {
+            if (paymentAmount >= 0) {
+                this.paymentAmount = paymentAmount;
+                return true;
+            } else
+                return false;
+        } catch (InputMismatchException e) {
             return false;
+        }
     }
 
     @Override
